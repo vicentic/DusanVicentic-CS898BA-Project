@@ -28,14 +28,23 @@ while True:
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
     fg_mask = cv2.morphologyEx(fg_mask, cv2.MORPH_OPEN, kernel)
 
-    # 2. Hough Circle Transform to detect the ball
+    # 2nd itteration: added color mask (isolate basketball color)
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    lower_orange = np.array([5, 100, 50])
+    upper_orange = np.array([25, 255, 255])
+    color_mask = cv2.inRange(hsv, lower_orange, upper_orange)
+
+    # 2nd itt: combine masks (must be moving and orange)
+    combined_mask = cv2.bitwise_and(fg_mask, color_mask)
+
+    # 2. Hough Circle Transform to detect the ball (2nd itt: tightened parameters)
     circles = cv2.HoughCircles(
         gray,
         cv2.HOUGH_GRADIENT,
         dp = 1.2,
         minDist = 30,
-        param1 = 50,
-        param2 = 30,
+        param1 = 100, #increased from 50
+        param2 = 45, # increased from 30
         minRadius = 10,
         maxRadius = 30
     )
@@ -46,14 +55,15 @@ while True:
         for i in circles[0, :]:
             x, y, r = i[0], i[1], i[2]
 
-            if fg_mask[y, x] == 255:
+            # 2nd itt: check if the detected circle is in combined mask
+            if combined_mask[y, x] == 255:
                 ball_coordinates.append((x, y))
 
                 cv2.circle(frame, (x, y), r, (0, 255, 0), 2)
-                cv2.circle(frame, (x, y), 2, (0, 0, 255), 3)
+
 
     cv2.imshow('Tracking Baseline', frame)
-    cv2.imshow('Foreground Mask', fg_mask)
+    cv2.imshow('Combined Mask', combined_mask) # 2nd itt: show combined mask
 
     if cv2.waitKey(30) & 0xFF == 27:
         break
