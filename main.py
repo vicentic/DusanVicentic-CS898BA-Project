@@ -29,9 +29,10 @@ while True:
     fg_mask = cv2.morphologyEx(fg_mask, cv2.MORPH_OPEN, kernel)
 
     # 2nd itteration: added color mask (isolate basketball color)
+    # 3rd itteration: adjusted range to better match basketball hsv [3, 146, 196]
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    lower_orange = np.array([5, 100, 50])
-    upper_orange = np.array([25, 255, 255])
+    lower_orange = np.array([0, 80, 130])
+    upper_orange = np.array([15, 220, 255])
     color_mask = cv2.inRange(hsv, lower_orange, upper_orange)
 
     # 2nd itt: combine masks (must be moving and orange)
@@ -44,9 +45,9 @@ while True:
         dp = 1.2,
         minDist = 30,
         param1 = 100, #increased from 50
-        param2 = 45, # increased from 30
+        param2 = 30, # increased from 30, decreased from 45 to 30
         minRadius = 10,
-        maxRadius = 30
+        maxRadius = 20 # 3rd itt: colomeasured ball radius to ~ 15
     )
 
     # Filter circles using GMM mask
