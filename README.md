@@ -7,7 +7,7 @@
 **Phase:** Midterm Progress & Baseline Implementation  
 
 ## Project Overview
-This project aims to mathematically define an individual player's "perfect shot arc" and predict mechanical deviations using dense optical flow. For the midterm report, the system relies on domain engineering and kinematics to extract a mathematical trajectory model from a static-angle video, bypassingHuman Pose Estimation (HPE) neural networks.
+This project aims to mathematically define an individual player's "perfect shot arc" and predict mechanical deviations using dense optical flow. For the midterm report, the system relies on domain engineering and kinematics to extract a mathematical trajectory model from a static-angle video, bypassing Human Pose Estimation (HPE) neural networks.
 
 ## Setup
 
@@ -18,7 +18,7 @@ Ensure you have Python installed along with the following libraries:
 *   `matplotlib`
 
 ## Execution Steps: 
-1. Place a basketball shot video in root directory (it should be trimmed to show release to entry)
+1. Place a basketball shot video in root directory (it should be trimmed to show shot release to entry)
 2. Update 'video_path' to match the video file name
 3. Run script 'main.py'
 
@@ -30,5 +30,5 @@ The current script utilizies 3 computer vision techniques:
 
 
 ## Results
-A plot output will be created under 'ball_trajectory_baseline.jpg'
+A plot output will be created under 'ball_trajectory_baseline.png'
 The midterm implementation successfully detects the trajectory of a basketball and plots the arc of that shot
