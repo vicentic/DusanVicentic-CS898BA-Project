@@ -96,7 +96,7 @@ if len(ball_coordinates) > 3:
 
     plt.gca().invert_yaxis()  # Invert y-axis to match image coordinates
 
-    plt.title('Baseline Implementation:Ball Trajectory Fitting')
+    plt.title('Baseline Implementation: Ball Trajectory')
     plt.xlabel('X Coordinate (pixels)')
     plt.ylabel('Y Coordinate (pixels)')
     plt.legend()
