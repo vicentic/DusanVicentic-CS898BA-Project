@@ -30,6 +30,8 @@ The current script utilizies 3 computer vision techniques:
 
 
 ## Results
-A plot output will be created under 'ball_trajectory_baseline.png'
+A plot output will be created under ball_trajectory_baseline.png
+
+![ball_tajectory_baseline.png](ball_trajectory_baseline.png)
 
 The midterm implementation successfully detects the trajectory of a basketball and plots the arc of that shot
