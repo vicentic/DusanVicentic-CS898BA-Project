@@ -24,7 +24,7 @@ Ensure you have Python installed along with the following libraries:
 
 ## Explenation: 
 The current script utilizies 3 computer vision techniques:
-1. Gaussiam Mixture background subtraction
+1. Gaussian Mixture background subtraction
 2. Hough Circle transform:
 3. Polynomial Regression
 
