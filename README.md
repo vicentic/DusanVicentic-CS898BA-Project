@@ -26,6 +26,7 @@ The current script utilizies 3 computer vision techniques:
 2. Hough Circle transform:
 3. Polynomial Regression
 
+
 ## Results
 A plot output will be created under 'ball_trajectory_baseline.jpg'
 The midterm implementation successfully detects the trajectory of a basketball and plots the arc of that shot
