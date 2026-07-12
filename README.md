@@ -1,7 +1,9 @@
 # Basketball Shot - Performance Analysis
 
 **Author:** Dusan Vicentic  
+
 **Course:** CS 898BA - Image Analysis & Computer Vision 
+
 **Phase:** Midterm Progress & Baseline Implementation  
 
 ## Project Overview
